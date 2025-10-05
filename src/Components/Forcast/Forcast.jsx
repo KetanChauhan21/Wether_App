@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Accordion,
   AccordionItem,
@@ -18,15 +17,8 @@ const days = [
 
 const Forcast = ({ data }) => {
   const daysData = new Date().getDay();
-  let weekDays;
-
-  for (let i = 0; i < days.length; i++) {
-    if (i === daysData) {
-      weekDays = days[daysData];
-    }
-  }
-
-  console.log(weekDays);
+  let weeksday = days.slice(daysData, days.length).concat(days.slice(0,daysData))
+  console.log(weeksday);
 
   return (
     <>
@@ -39,6 +31,7 @@ const Forcast = ({ data }) => {
                 return (
                 <>
                   <div key={indx}>
+                    <p>this is good</p>
                     <img
                       src={`icons/${val.weather[0].icon}.png`}
                       alt="weather icon"
